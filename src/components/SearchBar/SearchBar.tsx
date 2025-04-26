@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
 import s from "./SearchBar.module.css";
 
-const SearchBar = ({ handSub }) => {
+interface SearchBarProps {
+  handSub: (searchInp: string) => void;
+}
+
+const SearchBar = ({ handSub }: SearchBarProps) => {
   const [cur, setCur] = useState("");
 
-  const onSub = (e) => {
+  const onSub = (e: FormEvent) => {
     e.preventDefault();
 
     if (cur.trim() === "") {

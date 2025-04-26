@@ -1,7 +1,12 @@
+import { Img } from "../../App.types";
 import ImageCard from "../ImageCard/ImageCard";
 import s from "./ImageGallery.module.css";
 
-const ImageGallery = ({ photo, onClick }) => {
+interface GalleryProp {
+  photo: Img[];
+  onClick: (img: Img) => void;
+}
+const ImageGallery = ({ photo, onClick }: GalleryProp) => {
   return (
     <ul className={s.galleryList}>
       {photo.length > 0 &&
