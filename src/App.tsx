@@ -7,7 +7,7 @@ import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
-import { Img } from "./App.types";
+import { ApiResponse, Img } from "./App.types";
 // import { toast } from "react-hot-toast";
 // import axios from "axios";
 
@@ -27,7 +27,7 @@ function App() {
         setIsLoad(true);
         setError(false);
         const res = await fetchImages(query, page);
-        setPhoto((prev: Img[]) => [...prev, ...res]);
+        setPhoto((prev: Img[]) => [...prev, ...res.results]);
       } catch {
         setError(true);
       } finally {
